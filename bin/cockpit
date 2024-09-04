@@ -1,0 +1,35 @@
+#!/usr/bin/php
+<?php
+
+use Symfony\Component\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+$rootApp = isset($_composer_bin_dir) ? dirname($_composer_bin_dir, 2) : dirname(__DIR__);
+
+$envfile = $rootApp . '/.env';
+
+require $_composer_autoload_path ?? $rootApp . '/vendor/autoload.php';
+
+if (file_exists($envfile)) {
+    (new Dotenv())->usePutenv()->load($envfile);
+}
+
+$commands = array_map(function (string $filename) {
+    $class = basename($filename, '.php');
+
+    $class = "Cockpit\\Php\\Commands\\$class";
+
+    return new $class();
+}, glob(__DIR__ . '/commands/*'));
+
+$app = new Application();
+
+$app->setName('Cockpit');
+
+$app->addCommands($commands);
+
+$app->run();
