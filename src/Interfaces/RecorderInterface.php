@@ -1,6 +1,6 @@
 <?php
 
-namespace Cockpit\Php\Interfaces;
+namespace Debugmate\Interfaces;
 
 interface RecorderInterface
 {

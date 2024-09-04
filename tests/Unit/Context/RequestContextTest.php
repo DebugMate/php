@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context;
+namespace Debugmate\Tests\Unit\Context;
 
-use Cockpit\Php\Context\RequestContext;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\RequestContext;
+use Debugmate\Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Mockery;
 use Mockery\MockInterface;

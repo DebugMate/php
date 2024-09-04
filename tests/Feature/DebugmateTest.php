@@ -1,18 +1,18 @@
 <?php
 
-namespace Cockpit\Php\Tests\Feature;
+namespace Debugmate\Tests\Feature;
 
-use Cockpit\Php\Cockpit;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Debugmate;
+use Debugmate\Tests\TestCase;
 
-class CockpitTest extends TestCase
+class DebugmateTest extends TestCase
 {
     /** @test */
     public function it_should_add_the_custom_environments()
     {
-        Cockpit::addCustomEnvs(['new-env' => 'custom-env']);
+        Debugmate::addCustomEnvs(['new-env' => 'custom-env']);
 
-        $payload = Cockpit::getCustomEnvs();
+        $payload = Debugmate::getCustomEnvs();
 
         $this->assertEquals($payload['new-env'], 'custom-env');
     }
@@ -20,11 +20,11 @@ class CockpitTest extends TestCase
     /** @test */
     public function it_should_add_the_custom_environments_with_closure()
     {
-        Cockpit::addCustomEnvs(function () {
+        Debugmate::addCustomEnvs(function () {
             return ['new-env' => 'custom-env'];
         });
 
-        $payload = Cockpit::getCustomEnvs();
+        $payload = Debugmate::getCustomEnvs();
 
         $this->assertEquals($payload['new-env'], 'custom-env');
     }
@@ -32,7 +32,7 @@ class CockpitTest extends TestCase
     /** @test */
     public function it_should_return_the_null_user_when_closure_is_null()
     {
-        $user = Cockpit::getUser();
+        $user = Debugmate::getUser();
 
         $this->assertNull($user);
     }
@@ -40,13 +40,13 @@ class CockpitTest extends TestCase
     /** @test */
     public function it_should_return_the_user_without_guard()
     {
-        $data = ['name' => 'cockpit', 'email' => 'fake@email.com'];
+        $data = ['name' => 'debugmate', 'email' => 'fake@email.com'];
 
-        Cockpit::setUser(function () use ($data) {
+        Debugmate::setUser(function () use ($data) {
             return $data;
         });
 
-        $user = Cockpit::getUser();
+        $user = Debugmate::getUser();
 
         $this->assertArrayContains($user->toArray(), $data);
     }
@@ -54,13 +54,13 @@ class CockpitTest extends TestCase
     /** @test */
     public function it_should_return_the_user_with_guard()
     {
-        $data = ['name' => 'cockpit', 'email' => 'fake@email.com'];
+        $data = ['name' => 'debugmate', 'email' => 'fake@email.com'];
 
-        Cockpit::setUser(function () use ($data) {
+        Debugmate::setUser(function () use ($data) {
             return $data;
         }, 'test');
 
-        $user = Cockpit::getUser();
+        $user = Debugmate::getUser();
 
         $this->assertArrayContains($user->toArray(), array_merge($data, ['guard' => 'test']));
     }
@@ -68,11 +68,11 @@ class CockpitTest extends TestCase
     /** @test */
     public function it_should_return_the_null_user_when_data_is_not_array()
     {
-        Cockpit::setUser(function () {
-            return 'cockpit-user';
+        Debugmate::setUser(function () {
+            return 'debugmate-user';
         });
 
-        $user = Cockpit::getUser();
+        $user = Debugmate::getUser();
 
         $this->assertNull($user);
     }
@@ -82,8 +82,8 @@ class CockpitTest extends TestCase
     {
         $vesrion = 'V' . rand(1, 5);
 
-        Cockpit::frameworkVersion($vesrion);
+        Debugmate::frameworkVersion($vesrion);
 
-        $this->assertSame($vesrion, Cockpit::$frameworkVersion);
+        $this->assertSame($vesrion, Debugmate::$frameworkVersion);
     }
 }

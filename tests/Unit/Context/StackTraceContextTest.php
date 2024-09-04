@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests;
+namespace Debugmate\Tests;
 
-use Cockpit\Php\Context\StackTraceContext;
-use Cockpit\Php\Tests\Fixtures\Services\MyService;
+use Debugmate\Context\StackTraceContext;
+use Debugmate\Tests\Fixtures\Services\MyService;
 use Exception;
 
 class StackTraceContextTest extends TestCase
@@ -34,9 +34,9 @@ class StackTraceContextTest extends TestCase
                 'preview'           => [
                     1  => '<?php',
                     2  => '',
-                    3  => 'namespace Cockpit\Php\Tests\Fixtures\Services;',
+                    3  => 'namespace Debugmate\Tests\Fixtures\Services;',
                     4  => '',
-                    5  => 'use Cockpit\Php\Tests\Fixtures\Exceptions\MyException;',
+                    5  => 'use Debugmate\Tests\Fixtures\Exceptions\MyException;',
                     6  => '',
                     7  => 'class MyService',
                     8  => '{',
@@ -54,7 +54,7 @@ class StackTraceContextTest extends TestCase
             'file'              => __DIR__ . '/StackTraceContextTest.php',
             'line'              => 17,
             'function'          => 'it_should_get_stack_trace_from_a_exception',
-            'class'             => 'Cockpit\Php\Tests\StackTraceContextTest',
+            'class'             => 'Debugmate\Tests\StackTraceContextTest',
             'application_frame' => true,
             'preview'           => [
                 7  => 'use Exception;',
