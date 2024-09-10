@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/env php
 <?php
 
 use Symfony\Component\Console\Application;
@@ -21,14 +21,14 @@ if (file_exists($envfile)) {
 $commands = array_map(function (string $filename) {
     $class = basename($filename, '.php');
 
-    $class = "Cockpit\\Php\\Commands\\$class";
+    $class = "Debugmate\\Commands\\$class";
 
     return new $class();
 }, glob(__DIR__ . '/commands/*'));
 
 $app = new Application();
 
-$app->setName('Cockpit');
+$app->setName('Debugmate');
 
 $app->addCommands($commands);
 

@@ -1,5 +1,5 @@
 {
-  "name": "devsquad-cockpit/php",
+  "name": "debugmate/php",
   "description": "A Freemium package to help you tracking your project errors",
   "license": "MIT",
   "minimum-stability": "dev",
@@ -26,21 +26,20 @@
     ]
   },
   "bin": [
-    "bin/cockpit"
+    "bin/debugmate"
   ],
   "autoload": {
     "psr-4": {
-      "Cockpit\\Php\\": "src/",
-      "Cockpit\\Php\\Commands\\": "bin/commands/"
+      "Debugmate\\": "src/",
+      "Debugmate\\Commands\\": "bin/commands/"
     },
     "files": [
-      "src/helpers.php",
-      "src/handler.php"
+      "src/helpers.php"
     ]
   },
   "autoload-dev": {
     "psr-4": {
-      "Cockpit\\Php\\Tests\\": "tests/"
+      "Debugmate\\Tests\\": "tests/"
     }
   },
   "require": {

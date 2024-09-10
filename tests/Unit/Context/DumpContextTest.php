@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context;
+namespace Debugmate\Tests\Unit\Context;
 
-use Cockpit\Php\Context\DumpContext;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\DumpContext;
+use Debugmate\Tests\TestCase;
 use Mockery;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 

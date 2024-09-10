@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Context;
+namespace Debugmate\Context;
 
-use Cockpit\Php\Cockpit;
-use Cockpit\Php\Interfaces\ContextInterface;
+use Debugmate\Debugmate;
+use Debugmate\Interfaces\ContextInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class EnvironmentContext implements ContextInterface
@@ -19,7 +19,7 @@ class EnvironmentContext implements ContextInterface
     public function getContext(): ?array
     {
         return array_merge([
-            'framework_version'     => Cockpit::$frameworkVersion ?? getenv('APP_VERSION'),
+            'framework_version'     => Debugmate::$frameworkVersion ?? getenv('APP_VERSION'),
             'laravel_locale'        => '',
             'laravel_config_cached' => '',
             'app_debug'             => getenv('APP_DEBUG'),
@@ -32,7 +32,7 @@ class EnvironmentContext implements ContextInterface
             'browser_version'       => $this->request->headers->get('User-Agent'),
             'node_version'          => $this->runExec('node -v'),
             'npm_version'           => $this->runExec('npm -v'),
-        ], Cockpit::getCustomEnvs());
+        ], Debugmate::getCustomEnvs());
     }
 
     private function getDatabaseVersion()

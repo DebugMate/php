@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context;
+namespace Debugmate\Tests\Unit\Context;
 
-use Cockpit\Php\Context\CommandContext;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\CommandContext;
+use Debugmate\Tests\TestCase;
 
 class CommandContextTest extends TestCase
 {

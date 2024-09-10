@@ -1,8 +1,8 @@
 <?php
 
-namespace Cockpit\Php\Context;
+namespace Debugmate\Context;
 
-use Cockpit\Php\Interfaces\ContextInterface;
+use Debugmate\Interfaces\ContextInterface;
 use Spatie\Backtrace\Backtrace;
 use Spatie\Backtrace\CodeSnippet;
 use Spatie\Backtrace\Frame;

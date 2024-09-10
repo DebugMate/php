@@ -1,6 +1,6 @@
 <?php
 
-namespace Cockpit\Php\Common;
+namespace Debugmate\Common;
 
 abstract class OccurrenceType
 {

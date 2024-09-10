@@ -1,6 +1,6 @@
 <?php
 
-namespace Cockpit\Php\Tests\Fixtures\Exceptions;
+namespace Debugmate\Tests\Fixtures\Exceptions;
 
 use Exception;
 

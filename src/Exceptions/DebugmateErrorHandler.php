@@ -1,20 +1,20 @@
 <?php
 
-namespace Cockpit\Php\Exceptions;
+namespace Debugmate\Exceptions;
 
-use Cockpit\Php\Common\OccurrenceType;
-use Cockpit\Php\Context\CommandContext;
-use Cockpit\Php\Context\DumpContext;
-use Cockpit\Php\Context\EnvironmentContext;
-use Cockpit\Php\Context\RequestContext;
-use Cockpit\Php\Context\StackTraceContext;
-use Cockpit\Php\Context\UserContext;
+use Debugmate\Common\OccurrenceType;
+use Debugmate\Context\CommandContext;
+use Debugmate\Context\DumpContext;
+use Debugmate\Context\EnvironmentContext;
+use Debugmate\Context\RequestContext;
+use Debugmate\Context\StackTraceContext;
+use Debugmate\Context\UserContext;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Throwable;
 
-class CockpitErrorHandler
+class DebugmateErrorHandler
 {
     private $response = null;
 
@@ -74,9 +74,9 @@ class CockpitErrorHandler
     protected function send($data): void
     {
         try {
-            $webhookUrl     = preg_replace('#(?<!:)/+#im', '/', getenv('COCKPIT_DOMAIN') . '/webhook');
+            $webhookUrl     = preg_replace('#(?<!:)/+#im', '/', getenv('DEBUGMATE_DOMAIN') . '/webhook');
             $this->response = (new Client([
-                'headers' => ['X-COCKPIT-TOKEN' => getenv('COCKPIT_TOKEN')]
+                'headers' => ['X-DEBUGMATE-TOKEN' => getenv('DEBUGMATE_TOKEN')]
             ]))->post($webhookUrl, [
                 'json'        => $data,
                 'http_errors' => false

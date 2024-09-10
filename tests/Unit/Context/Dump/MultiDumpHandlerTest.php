@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context\Dump;
+namespace Debugmate\Tests\Unit\Context\Dump;
 
-use Cockpit\Php\Context\Dump\MultiDumpHandler;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\Dump\MultiDumpHandler;
+use Debugmate\Tests\TestCase;
 
 class MultiDumpHandlerTest extends TestCase
 {

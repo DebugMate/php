@@ -1,12 +1,12 @@
 <?php
 
-namespace Cockpit\Php;
+namespace Debugmate;
 
 use Closure;
 use Illuminate\Support\Collection;
 use Symfony\Component\HttpFoundation\Request;
 
-class Cockpit
+class Debugmate
 {
     protected static $userClosure;
 
