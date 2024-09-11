@@ -14,7 +14,7 @@ class TestDebugmateCommand extends Command
     public function __construct()
     {
         parent::__construct('test');
-        parent::setDescription('Send fake data to capture api');
+        parent::setDescription('Send fake data to webhook');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

@@ -16,7 +16,7 @@ class DebugmateErrorHandlerTest extends TestCase
     {
         putenv('DEBUGMATE_DOMAIN=http://debugmate');
 
-        $debugmateUrl = 'http://debugmate/api/capture';
+        $debugmateUrl = 'http://debugmate/webhook';
 
         Mockery::mock('overload:' . Client::class)
             ->shouldReceive('post')
