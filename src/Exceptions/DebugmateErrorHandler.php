@@ -74,10 +74,10 @@ class DebugmateErrorHandler
     protected function send($data): void
     {
         try {
-            $webhookUrl     = preg_replace('#(?<!:)/+#im', '/', getenv('DEBUGMATE_DOMAIN') . '/webhook');
+            $apiUrl     = preg_replace('#(?<!:)/+#im', '/', getenv('DEBUGMATE_DOMAIN') . '/api/capture');
             $this->response = (new Client([
                 'headers' => ['X-DEBUGMATE-TOKEN' => getenv('DEBUGMATE_TOKEN')]
-            ]))->post($webhookUrl, [
+            ]))->post($apiUrl, [
                 'json'        => $data,
                 'http_errors' => false
             ]);
