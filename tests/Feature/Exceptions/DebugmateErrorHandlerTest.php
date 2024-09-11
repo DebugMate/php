@@ -7,14 +7,16 @@ use Debugmate\Exceptions\DebugmateErrorHandler;
 use Debugmate\Tests\Fixtures\Exceptions\MyException;
 use Debugmate\Tests\TestCase;
 use Mockery;
+use GuzzleHttp\Client;
 
 class DebugmateErrorHandlerTest extends TestCase
 {
     /** @test */
     public function it_should_send_error_to_debugmate_serve()
     {
-        $debugmateUrl = 'http://debugmate/webhook';
-        putenv('DEBUGMATE_DOMAIN=' . $debugmateUrl);
+        putenv('DEBUGMATE_DOMAIN=http://debugmate');
+
+        $debugmateUrl = 'http://debugmate/api/capture';
 
         Mockery::mock('overload:' . Client::class)
             ->shouldReceive('post')
