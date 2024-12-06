@@ -1,13 +1,13 @@
 <?php
 
-namespace Cockpit\Php\Context;
+namespace Debugmate\Context;
 
-use Cockpit\Php\Context\Dump\Dump;
-use Cockpit\Php\Context\Dump\DumpHandler;
-use Cockpit\Php\Context\Dump\HtmlDumper;
-use Cockpit\Php\Context\Dump\MultiDumpHandler;
-use Cockpit\Php\Interfaces\ContextInterface;
-use Cockpit\Php\Interfaces\RecorderInterface;
+use Debugmate\Context\Dump\Dump;
+use Debugmate\Context\Dump\DumpHandler;
+use Debugmate\Context\Dump\HtmlDumper;
+use Debugmate\Context\Dump\MultiDumpHandler;
+use Debugmate\Interfaces\ContextInterface;
+use Debugmate\Interfaces\RecorderInterface;
 use Illuminate\Support\Arr;
 use ReflectionMethod;
 use ReflectionProperty;

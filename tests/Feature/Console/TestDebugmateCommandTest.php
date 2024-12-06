@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Feature\Console;
+namespace Debugmate\Tests\Feature\Console;
 
-use Cockpit\Php\Commands\TestCockpitCommand;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Commands\TestDebugmateCommand;
+use Debugmate\Tests\TestCase;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
 use Mockery;
@@ -11,12 +11,12 @@ use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command as Status;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class TestCockpitCommandTest extends TestCase
+class TestDebugmateCommandTest extends TestCase
 {
     protected function execute(): CommandTester
     {
         $application = new Application();
-        $application->add(new TestCockpitCommand());
+        $application->add(new TestDebugmateCommand());
 
         $command       = $application->find('test');
         $commandTester = new CommandTester($command);
@@ -29,9 +29,9 @@ class TestCockpitCommandTest extends TestCase
     }
 
     /** @test */
-    public function it_should_send_cockpit_test_command(): void
+    public function it_should_send_debugmate_test_command(): void
     {
-        putenv('COCKPIT_DOMAIN=http://app.test');
+        putenv('DEBUGMATE_DOMAIN=http://app.test');
 
         Mockery::mock('overload:' . Client::class)
             ->shouldReceive('post')
@@ -40,24 +40,24 @@ class TestCockpitCommandTest extends TestCase
         $commandTester = $this->execute();
 
         $this->assertSame(Status::SUCCESS, $commandTester->getStatusCode());
-        $this->assertStringContainsString('Cockpit reached successfully. We sent a test Exception that has been registered.', $commandTester->getDisplay());
+        $this->assertStringContainsString('Debugmate reached successfully. We sent a test Exception that has been registered.', $commandTester->getDisplay());
     }
 
     /** @test */
     public function it_should_notice_when_isnt_able_to_send_test_when_route_is_empty(): void
     {
-        putenv('COCKPIT_DOMAIN=');
+        putenv('DEBUGMATE_DOMAIN=');
 
         $commandTester = $this->execute();
 
         $this->assertSame(Status::FAILURE, $commandTester->getStatusCode());
-        $this->assertStringContainsString('You must fill COCKPIT_DOMAIN env with a valid cockpit endpoint', $commandTester->getDisplay());
+        $this->assertStringContainsString('You must fill DEBUGMATE_DOMAIN env with a valid debugmate endpoint', $commandTester->getDisplay());
     }
 
     /** @test */
     public function it_should_return_an_error_message(): void
     {
-        putenv('COCKPIT_DOMAIN=http://app.test/wrong-url/');
+        putenv('DEBUGMATE_DOMAIN=http://app.test/wrong-url/');
 
         Mockery::mock('overload:' . Client::class)
             ->shouldReceive('post')
@@ -68,7 +68,7 @@ class TestCockpitCommandTest extends TestCase
         $output = $commandTester->getDisplay();
 
         $this->assertSame(Status::FAILURE, $commandTester->getStatusCode());
-        $this->assertStringContainsString('We couldn\'t reach Cockpit Server at http://app.test/wrong-url', $output);
+        $this->assertStringContainsString('We couldn\'t reach Debugmate Server at http://app.test/wrong-url', $output);
         $this->assertStringContainsString('Reason: 404 Not Found', $output);
     }
 }

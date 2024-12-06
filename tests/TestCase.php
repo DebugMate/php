@@ -1,6 +1,6 @@
 <?php
 
-namespace Cockpit\Php\Tests;
+namespace Debugmate\Tests;
 
 use Illuminate\Support\Arr;
 use Mockery;

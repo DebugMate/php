@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context\Dump;
+namespace Debugmate\Tests\Unit\Context\Dump;
 
-use Cockpit\Php\Context\Dump\Dump;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\Dump\Dump;
+use Debugmate\Tests\TestCase;
 
 class DumpTest extends TestCase
 {
@@ -11,7 +11,7 @@ class DumpTest extends TestCase
     public function it_should_mount_valid_dump_data()
     {
         $sourceFrame = [
-            "file"     => "Cockpit\Tests\Unit\Context\Dump\VarDumper.php",
+            "file"     => "Debugmate\Tests\Unit\Context\Dump\VarDumper.php",
             "line"     => 123,
             "function" => "dump",
             "class"    => VarDumper::class,

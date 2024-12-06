@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Context;
+namespace Debugmate\Context;
 
-use Cockpit\Php\Cockpit;
-use Cockpit\Php\Interfaces\ContextInterface;
+use Debugmate\Debugmate;
+use Debugmate\Interfaces\ContextInterface;
 
 class UserContext implements ContextInterface
 {
@@ -11,7 +11,7 @@ class UserContext implements ContextInterface
 
     public function __construct()
     {
-        $this->user = Cockpit::getUser();
+        $this->user = Debugmate::getUser();
     }
 
     public function getContext(): array

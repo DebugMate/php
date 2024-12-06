@@ -1,8 +1,8 @@
 <?php
 
-namespace Cockpit\Php\Tests\Fixtures\Services;
+namespace Debugmate\Tests\Fixtures\Services;
 
-use Cockpit\Php\Tests\Fixtures\Exceptions\MyException;
+use Debugmate\Tests\Fixtures\Exceptions\MyException;
 
 class MyService
 {

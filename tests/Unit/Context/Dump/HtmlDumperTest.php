@@ -1,9 +1,9 @@
 <?php
 
-namespace Cockpit\Php\Tests\Unit\Context\Dump;
+namespace Debugmate\Tests\Unit\Context\Dump;
 
-use Cockpit\Php\Context\Dump\HtmlDumper;
-use Cockpit\Php\Tests\TestCase;
+use Debugmate\Context\Dump\HtmlDumper;
+use Debugmate\Tests\TestCase;
 use Symfony\Component\VarDumper\Cloner\VarCloner;
 
 class HtmlDumperTest extends TestCase

@@ -1,15 +1,15 @@
 <?php
 
-namespace Cockpit\Php\Tests;
+namespace Debugmate\Tests;
 
 class HelpersTest extends TestCase
 {
     /** @test */
     public function it_should_return_application_path_when_in_env()
     {
-        putenv('APP_PATH=/cockpit/path');
+        putenv('APP_PATH=/debugmate/path');
 
-        $this->assertSame('/cockpit/path', get_base_dir());
+        $this->assertSame('/debugmate/path', get_base_dir());
     }
 
     /** @test */

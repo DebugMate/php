@@ -1,14 +1,14 @@
 <p align="center">
-    <img src="https://github.com/devsquad-cockpit/php/blob/develop/cockpit-logo.png?raw=true" alt="Cockpit" title="Cockpit" width="300"/>
+    <img src="https://github.com/debugmate/php/blob/develop/debugmate-logo.png?raw=true" alt="Debugmate" title="Debugmate" width="300"/>
 </p>
 
 <p align="center" style="margin-top: 6px; margin-bottom: 10px;">
     <a href="https://devsquad.com">
-        <img src="https://github.com/devsquad-cockpit/php/blob/develop/devsquad-logo.png?raw=true" alt="DevSquad" title="DevSquad" width="150"/>
+        <img src="https://github.com/debugmate/php/blob/develop/devsquad-logo.png?raw=true" alt="DevSquad" title="DevSquad" width="150"/>
     </a>
 </p>
 
-Cockpit is a beautiful error tracking package that will help your software team to track and fix errors.
+Debugmate is a beautiful error tracking package that will help your software team to track and fix errors.
 
 ## Composer Installation
 
@@ -41,32 +41,39 @@ This package is compatible with **PHP 7.3 or greater**.
 #### Now you can install the package:
 
 ```bash
-composer require devsquad-cockpit/php
+composer require debugmate/php
 ```
 
 ## Configuration
-So that the cockpit can send the errors to the application you need to define this environment configuration in your .env file
+So that the debugmate can send the errors to the application you need to define this environment configuration in your .env file
 
 ```env
-COCKPIT_DOMAIN=http://fake-cockpit.app/
-COCKPIT_TOKEN=project-token
+DEBUGMATE_DOMAIN=http://fake-debugmate.app/
+DEBUGMATE_TOKEN=project-token
 ```
-
 
 ## Testing
 
-You're able to send a fake error to the Cockpit as a test by running this command:
+You're able to send a fake error to the Debugmate as a test by running this command:
 
 ```php
-./vendor/bin/cockpit test
+./vendor/bin/debugmate test
 ```
 
 ## Set logged user
 
-Using the function below when reporting an error, the cockpit will send the data of the logged in user according to what was returned by Closure.
+Using the function below when reporting an error, the debugmate will send the data of the logged in user according to what was returned by Closure.
 
 ```php
-Cockpit::setUser(function() {
+\Debugmate\Debugmate::setUser(function() {
     return ['name'=>'name', 'email'=>'user@email.com'...];
 });
+```
+
+## Reporting Unhandled Exceptions
+
+To ensure all unhandled errors and exceptions are automatically reported to Debugmate, register our exception handler with the following code:
+
+```php
+\Debugmate\Exceptions\Handler::register()
 ```
