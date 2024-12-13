@@ -1,12 +1,4 @@
-<p align="center">
-    <img src="https://github.com/debugmate/php/blob/develop/debugmate-logo.png?raw=true" alt="Debugmate" title="Debugmate" width="300"/>
-</p>
-
-<p align="center" style="margin-top: 6px; margin-bottom: 10px;">
-    <a href="https://devsquad.com">
-        <img src="https://github.com/debugmate/php/blob/develop/devsquad-logo.png?raw=true" alt="DevSquad" title="DevSquad" width="150"/>
-    </a>
-</p>
+# PHP Debugmate
 
 Debugmate is a beautiful error tracking package that will help your software team to track and fix errors.
 
@@ -41,7 +33,7 @@ This package is compatible with **PHP 7.3 or greater**.
 #### Now you can install the package:
 
 ```bash
-composer require debugmate/php
+composer require debugmate/php:dev-main
 ```
 
 ## Configuration
