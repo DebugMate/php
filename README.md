@@ -33,7 +33,7 @@ This package is compatible with **PHP 7.3 or greater**.
 #### Now you can install the package:
 
 ```bash
-composer require debugmate/php:dev-main
+composer require debugmate/php
 ```
 
 ## Configuration
